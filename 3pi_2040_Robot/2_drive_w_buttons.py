@@ -1,0 +1,18 @@
+from pololu_3pi_2040_robot import robot
+import time
+
+button_a = robot.ButtonA()
+button_b = robot.ButtonB()
+motors = robot.Motors()
+
+speed = motors.MAX_SPEED
+
+
+while True:
+    if button_a.check(): #Triggers when button is pressed
+        time.sleep(0.5) # use so the robots doesn't lunge forward
+        motors.set_speeds(speed/3,speed/3) # set to 2000
+
+
+    if button_b.check():
+        motors.off()
