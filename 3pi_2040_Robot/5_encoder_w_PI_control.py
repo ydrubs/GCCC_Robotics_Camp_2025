@@ -37,7 +37,7 @@ button_a = robot.ButtonA()
 motors = robot.Motors()
 display = robot.Display()
 
-target_value = 60000  # How far we will travel
+target_value = 6000  # How far we will travel
 speed = motors.MAX_SPEED // 2
 """
 To set the kp we will use:
@@ -76,7 +76,7 @@ while True:
 
     # Proportional/Integral control
     error = left_count - right_count
-    correction = kp * error + ki * total_error # P + I terms
+    correction = (kp * error) + (ki * total_error) # P + I terms
 
     # Calculate speed of each side: Slow down whichever side is ahead, speed up whichever side is behind
     left_pwm = speed - correction
@@ -104,11 +104,16 @@ while True:
         else:
             run = False
 
+    # Motor Control
     if run == True:
         motors.set_speeds(left_pwm, right_pwm)  # Drive the motors
+        total_error += error * dt  # Accumulated error scaled up by dt (change in time)
+        total_error = max(-1000, min(1000, total_error)) # Prevent error from accumulating too much
 
-    if run == False:
+    if run == False or left_count >= target_value or right_count >= target_value:
+        run = False
         motors.set_speeds(0, 0)  # Drive the motors
+
 
     time.sleep_ms(50)
     display.show()
