@@ -12,16 +12,34 @@ display.fill(0)
 display.text("A=start  C=stop", 0, 0, 1)
 display.show()
 
-# def drive_straight(d):
-#     """
-#     We can wrap up the driving in a function to shorten syntax
-#     Note: for some reason we need to press c a bunch of times to stop movement
-#     """
-#     controller.drive_straight(d)
-#     wait_until_done(controller)
-#     if interrupted:
-#         controller.handle_interrupt()
-#         return
+def process_movement():
+    wait_until_done(controller)
+    if interrupted:
+        controller.handle_interrupt()
+        return
+
+def move_sequence():
+    # === Student-controlled motion sequence ===
+    controller.drive_straight(1000)
+    process_movement()
+
+    controller.turn_degrees(90)
+    process_movement()
+
+    controller.drive_straight(5000)
+    process_movement()
+
+    controller.turn_degrees(-45)
+    process_movement()
+
+    controller.drive_straight(2000)
+    process_movement()
+
+    controller.turn_degrees(-90)
+    process_movement()
+
+    controller.drive_straight(5000)
+    process_movement()
 
 while True:
     if button_a.check():
@@ -29,48 +47,7 @@ while True:
         time.sleep(0.25)
         controller.handle_interrupt()  # Reset screen before starting new sequence
 
-        # === Student-controlled motion sequence ===
-        controller.drive_straight(1000)
-        wait_until_done(controller)
-        if interrupted:
-            controller.handle_interrupt()
-            continue
-
-        controller.turn_degrees(90)
-        wait_until_done(controller)
-        if interrupted:
-            controller.handle_interrupt()
-            continue
-
-        controller.drive_straight(5000)
-        wait_until_done(controller)
-        if interrupted:
-            controller.handle_interrupt()
-            continue
-
-        controller.turn_degrees(-45)
-        wait_until_done(controller)
-        if interrupted:
-            controller.handle_interrupt()
-            continue
-
-        controller.drive_straight(2000)
-        wait_until_done(controller)
-        if interrupted:
-            controller.handle_interrupt()
-            continue
-
-        controller.turn_degrees(-90)
-        wait_until_done(controller)
-        if interrupted:
-            controller.handle_interrupt()
-            continue
-
-        controller.drive_straight(5000)
-        wait_until_done(controller)
-        if interrupted:
-            controller.handle_interrupt()
-            continue
+        move_sequence()
 
 
 
