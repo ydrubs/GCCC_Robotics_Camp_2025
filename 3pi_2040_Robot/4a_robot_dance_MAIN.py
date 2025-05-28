@@ -37,6 +37,7 @@ mario_theme = (
 controller = DanceController()
 controller.set_music(mario_theme)
 
+# SET CUSTOM LED COLORS
 controller.set_led_colors([
     [255, 0, 255],
     [0, 255, 255],
