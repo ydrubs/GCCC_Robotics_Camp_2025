@@ -60,10 +60,14 @@ class BoundaryAvoidanceController:
         self.sensors = robot.LineSensors()
         self.display = robot.Display()
         self.button_a = robot.ButtonA()
-        self.speed = 1500
-        self.border_threshold = 850
         self.avoiding = False
         self.last_seen_side = None
+
+        # === Paremetrs to tune  ===
+        self.speed = 1500
+        self.border_threshold = 850
+        self.turn_strength = 0.4
+
 
     def calibrate(self):
         self.display.fill(0)
@@ -110,13 +114,13 @@ class BoundaryAvoidanceController:
 
         steer = 0.0
         if left and not right:
-            steer = -0.4
+            steer = -self.turn_strength
             self.last_seen_side = "left"
         elif right and not left:
-            steer = 0.4
+            steer = self.turn_strength
             self.last_seen_side = "right"
         elif left and right:
-            steer = -0.4 if self.last_seen_side == "left" else 0.4
+            steer = -self.turn_strength if self.last_seen_side == "left" else self.turn_strength
         else:
             self.last_seen_side = None
 
