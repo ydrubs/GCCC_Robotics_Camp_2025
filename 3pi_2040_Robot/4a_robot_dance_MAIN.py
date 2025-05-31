@@ -15,7 +15,7 @@ All your moves can be added in the dance_routine() function below.
 Press Button C to start the show!
 """
 
-from  _robot_dance_CONTROLLER import DanceController
+from  _4a_robot_dance_CONTROLLER import DanceController
 
 # === Mario Theme Song ===
 """
