@@ -16,3 +16,11 @@ while True:
 
     if button_b.check():
         motors.off()
+
+# noinspection PyUnreachableCode
+"""
+Tasks:
+    When button A is pressed the robot moves in a square (or some other move sequene)
+    When button B is pressed the robot moves in a circle (or some other sequence)
+    When button C is pressed the motors turn off
+"""

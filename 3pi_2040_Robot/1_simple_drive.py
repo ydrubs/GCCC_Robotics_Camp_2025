@@ -15,4 +15,9 @@ while True:
     motors.off()
     time.sleep(2)
 
-
+# noinspection PyUnreachableCode
+"""
+Tasks:
+    1) Program the robot to drive in a square
+    2) Program the robot to drive in a circle 
+"""

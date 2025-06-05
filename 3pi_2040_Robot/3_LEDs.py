@@ -50,3 +50,9 @@ while True:
     # rgb_leds.off()
     # yellow_led.off()
     # time.sleep(1)
+
+# noinspection PyUnreachableCode
+"""
+Task:
+    - Create a custom blink sequence using different colors (Hex Values) and LED's 
+"""
