@@ -17,7 +17,7 @@ Press Button C to start the show!
 
 from  _4a_robot_dance_CONTROLLER import DanceController
 
-# === Mario Theme Song ===
+# === Song to play during movement===
 """
 Copy/Pase the desired music from the file called '4b_music_for_robot_dance' 
 If you change the name from maro_theme to something else, remember to also change the controller.set_music(<name>) reference

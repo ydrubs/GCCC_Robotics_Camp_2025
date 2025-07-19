@@ -1,8 +1,8 @@
 from pololu_3pi_2040_robot import robot
 import time
 
-button_a = robot.ButtonA()
-button_b = robot.ButtonB()
+button_a = robot.ButtonA() # Initialize Button A
+button_b = robot.ButtonB() # Initialize Button B
 motors = robot.Motors()
 
 speed = motors.MAX_SPEED

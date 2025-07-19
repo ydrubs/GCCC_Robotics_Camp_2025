@@ -3,9 +3,9 @@ import random
 from pololu_3pi_2040_robot import robot
 
 
-rgb_leds = robot.RGBLEDs()
-rgb_leds.set_brightness(5)
-yellow_led = robot.YellowLED()
+rgb_leds = robot.RGBLEDs() # initialize LED's
+rgb_leds.set_brightness(5) # Set LED Brightness
+yellow_led = robot.YellowLED() # Initialize yellow LED
 
 while True:
 
@@ -21,7 +21,7 @@ while True:
     rgb_leds.set(4, [0, 255, 255])
     rgb_leds.set(5, [255, 255, 0])
 
-    rgb_leds.show()
+    rgb_leds.show() # Update to show changes
     time.sleep(1)
 
     rgb_leds.set(0, [0, 0, 0])

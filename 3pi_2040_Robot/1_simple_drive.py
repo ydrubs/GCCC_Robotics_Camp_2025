@@ -1,7 +1,7 @@
 from pololu_3pi_2040_robot import robot
 import time
 
-motors = robot.Motors()
+motors = robot.Motors() # Initialize motors
 speed = motors.MAX_SPEED #Defined as -6000 to 6000
 
 while True:
