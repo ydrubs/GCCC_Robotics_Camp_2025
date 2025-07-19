@@ -22,7 +22,7 @@ display = robot.Display()
 # === START STUDENT TUNABLE PARAMETERS ===
 
 # Distance the robot should travel (6000 encoder ticks ≈ short straight run)
-target_value = 6000
+target_value = 8000
 
 # Base speed of the motors (try 2000 to 3000 for testing)
 speed = motors.MAX_SPEED // 2  # or set explicitly like: speed = 3000
